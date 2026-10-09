@@ -3,6 +3,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers'
 import JuegosForm from './components/JuegosForm'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import JuegosContainer from './containers/JuegosContainer'
+import Header from './layout/Header'
 function App() {
   
 
@@ -10,7 +11,7 @@ function App() {
     
     <LocalizationProvider dateAdapter={AdapterDayjs}>
     <>
-     
+        <Header/>
         <JuegosContainer/>
       
     </>

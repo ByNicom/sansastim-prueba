@@ -11,7 +11,9 @@ function JuegosContainer() {
         setJuegos([...juegos, juego]);
         setAlert(true);
     };
-
+    const handleDelete = (juego)=>{
+      setJuegos(juegos.filter((j)=> {return j?.nombre != juego?.nombre}));
+    }
 
   return (
     <>
@@ -23,7 +25,7 @@ function JuegosContainer() {
             </div>          
 
             <div className="col-md-8">
-                <JuegosView juegos={juegos}/>
+                <JuegosView juegos={juegos} onQuitar={handleDelete}/>
             </div>  
 
         </div>

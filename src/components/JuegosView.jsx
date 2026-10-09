@@ -1,11 +1,17 @@
-import { Card,CardContent, Table, TableCell,TableContainer,TableRow, TableHead,TableBody, Alert } from '@mui/material'
+import { Card,CardContent, Table, TableCell,TableContainer,TableRow, TableHead,TableBody, Alert, Button } from '@mui/material'
 import React from 'react'
 
-function JuegosView({juegos=[]}) {
+function JuegosView({juegos=[], onQuitar=null}) {
     if(!juegos?.length
     ){
         return <Alert severity="info">No hay juegos registrados</Alert>
     }
+    const handleQuitarStock = (juego) => {
+        onQuitar(juego);
+
+    }
+
+
   return (
     <Card>  
         <CardContent>
@@ -19,6 +25,7 @@ function JuegosView({juegos=[]}) {
                             <TableCell>Compañía</TableCell>
                             <TableCell>Físico</TableCell>
                             <TableCell>Año</TableCell>
+                            <TableCell>Acciones</TableCell>
                         </TableRow>    
                     </TableHead>
                     <TableBody>
@@ -30,6 +37,11 @@ function JuegosView({juegos=[]}) {
                             <TableCell>{j.compania}</TableCell>
                             <TableCell>{j.fisico?"Sí":"No"}</TableCell>
                             <TableCell>{j.anio.year()}</TableCell>
+                            <TableCell>
+                                <Button variant="outlined" color="error" onClick={() => handleQuitarStock(j)}>
+                                    Quitar Stock
+                                </Button>
+                            </TableCell>
                         </TableRow>
                     )}
                     </TableBody>
