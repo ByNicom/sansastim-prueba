@@ -12,6 +12,15 @@ function JuegosForm({onCreateJuego=()=>{}}) {
   const [anio, setAnio] = useState(null);
   const [fisico, setFisico] = useState(false);
 
+    const limpiarFormulario = () => {
+    setNombre("");
+    setDescripcion("");
+    setCompania(companias[0].value);
+    setPlataforma("");
+    setAnio(null);
+    setFisico(false);
+  };
+
   const handleClick = (e) => {
     //contenido de un juego y hacerlo un objeto
     const juego = {};
@@ -59,7 +68,9 @@ function JuegosForm({onCreateJuego=()=>{}}) {
           </div>
           <div className="mt-3">
 
-              <DatePicker id="anio-juego" value={anio} onChange={(v) => setAnio(v)} label="Año de lanzamiento" views={['year']} openTo="year" format="YYYY"  fullWidth/>
+              <DatePicker id="anio-juego" value={anio} onChange={(v) => setAnio(v)} label="Año de lanzamiento" 
+              views={['year']} openTo="year" format="YYYY"  
+              fullWidth/>
 
           </div>
           <div className="mt-3">
@@ -70,7 +81,6 @@ function JuegosForm({onCreateJuego=()=>{}}) {
                 label="Juego fisico disponible?"
               />
           </div>
-
 
         </div>
 
